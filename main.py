@@ -1,3 +1,6 @@
+import utils.http_session
+import utils.transport
+import utils.session
 from flask import Flask, render_template, request
 import pandas as pd
 import pickle
@@ -34,7 +37,7 @@ def predict():
     except ValueError:
         return "Error: Please enter valid numeric values."
 
-    # Prepare input for model
+    # Prepare input for model 
     input_data = pd.DataFrame([[location, sqft, bath, bhk]], columns=['location', 'total_sqft', 'bath', 'bhk'])
 
     try:
